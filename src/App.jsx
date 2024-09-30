@@ -122,6 +122,7 @@ function App() {
           <button onClick={() => updateDisplay2(8)}>8</button>
           <button onClick={() => updateDisplay2(9)}>9</button>
           <button onClick={() => updateDisplay2(0)}>0</button>
+          <button onClick={() => updateDisplay2(".")}>.</button>
           <button onClick={() => clearDisplay2()}>Clear</button>
         </div>
         <button onClick={() => setDisplay2(stored)}>Recall</button>
