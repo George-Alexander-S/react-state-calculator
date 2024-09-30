@@ -12,19 +12,37 @@ function App() {
 
 
   const updateDisplay1 = (number) => {
-    if (display1 === "0" && number === 0) {
-      setDisplay1(number)
+    if (!display1.includes(".")) {
+      if (display1 === "0" && number === 0) {
+        setDisplay1(number.toString())
+      }
+      else if (display1 === 0) {
+        setDisplay1("")
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
+      else if (display1 === "0") {
+        setDisplay1("")
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
+      else {
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
     }
-    else if (display1 === 0) {
-      setDisplay1("")
-      setDisplay1((display1) => display1.toString() + number.toString())
-    }
-    else if (display1 === "0") {
-      setDisplay1("")
-      setDisplay1((display1) => display1.toString() + number.toString())
-    }
-    else {
-      setDisplay1((display1) => display1.toString() + number.toString())
+    else if (number != ".") {
+      if (display1 === "0" && number === 0) {
+        setDisplay1(number.toString())
+      }
+      else if (display1 === 0) {
+        setDisplay1("")
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
+      else if (display1 === "0") {
+        setDisplay1("")
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
+      else {
+        setDisplay1((display1) => display1.toString() + number.toString())
+      }
     }
   }
 
@@ -33,19 +51,37 @@ function App() {
   }
 
   const updateDisplay2 = (number) => {
-    if (display2 === "0" && number === 0) {
-      setDisplay2(number)
+    if (!display2.includes(".")) {
+      if (display2 === "0" && number === 0) {
+        setDisplay2(number.toString())
+      }
+      else if (display2 === 0) {
+        setDisplay2("")
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
+      else if (display2 === "0") {
+        setDisplay2("")
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
+      else {
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
     }
-    else if (display2 === 0) {
-      setDisplay2("")
-      setDisplay2((display2) => display2.toString() + number.toString())
-    }
-    else if (display2 === "0") {
-      setDisplay2("")
-      setDisplay2((display2) => display2.toString() + number.toString())
-    }
-    else {
-      setDisplay2((display2) => display2.toString() + number.toString())
+    else if (number != ".") {
+      if (display2 === "0" && number === 0) {
+        setDisplay2(number.toString())
+      }
+      else if (display2 === 0) {
+        setDisplay2("")
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
+      else if (display2 === "0") {
+        setDisplay2("")
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
+      else {
+        setDisplay2((display2) => display2.toString() + number.toString())
+      }
     }
   }
 
@@ -59,16 +95,16 @@ function App() {
 
   const calculate = (number1, number2) => {
     if (operation === "+") {
-      setResult(number1+number2)
+      setResult((number1+number2).toString())
     }
     else if (operation === "-") {
-      setResult(number1 - number2)
+      setResult((number1 - number2).toString())
     }
     else if (operation === "*") {
-      setResult(number1 * number2)
+      setResult((number1 * number2).toString())
     }
     else if (operation === "÷") {
-      setResult(number1 / number2)
+      setResult((number1 / number2).toString())
     }
     console.log(number1+" "+operation+" "+number2+" = "+result)
   }
@@ -96,7 +132,7 @@ function App() {
           <button onClick={() => updateDisplay1(".")}>.</button>
           <button onClick={() => clearDisplay1()}>Clear</button>
         </div>
-        <button onClick={() => setDisplay1(stored)}>Recall</button>
+        <button onClick={() => setDisplay1(stored.toString())}>Recall</button>
       </div>
 
       <div className="panel">
@@ -125,7 +161,7 @@ function App() {
           <button onClick={() => updateDisplay2(".")}>.</button>
           <button onClick={() => clearDisplay2()}>Clear</button>
         </div>
-        <button onClick={() => setDisplay2(stored)}>Recall</button>
+        <button onClick={() => setDisplay2(stored.toString())}>Recall</button>
       </div>
       <div className="panel answer">
         <p>{result}</p>
