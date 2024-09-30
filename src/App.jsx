@@ -6,6 +6,7 @@ function App() {
   const [display1, setDisplay1] = useState("0")
   const [display2, setDisplay2] = useState("0")
   const [operation, setOperation] = useState("+")
+  const [result, setResult] = useState(0)
 
 
   const updateDisplay1 = (number) => {
@@ -40,6 +41,21 @@ function App() {
 
   const updateOperation = (operator) => {
     setOperation(operator);
+  }
+
+  const calculate = (number1, number2) => {
+    if (operation === "+") {
+      setResult(number1+number2)
+    }
+    else if (operation === "-") {
+      setResult(number1 - number2)
+    }
+    else if (operation === "*") {
+      setResult(number1 * number2)
+    }
+    else if (operation === "÷") {
+      setResult(number1 / number2)
+    }
   }
 
   return (
@@ -88,9 +104,9 @@ function App() {
         </div>
       </div>
       <div className="panel answer">
-        <p>0</p>
+        <p>{result}</p>
         <div>
-          <button>=</button>
+          <button onClick={() => calculate(parseFloat(display1), parseFloat(display2))}>=</button>
         </div>
       </div>
     </div>
