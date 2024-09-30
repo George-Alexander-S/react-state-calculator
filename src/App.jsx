@@ -8,6 +8,8 @@ function App() {
   const [operation, setOperation] = useState("+")
   const [result, setResult] = useState(0)
 
+  const [stored, setStored] = useState("")
+
 
   const updateDisplay1 = (number) => {
     if (display1 === "0" && number === 0) {
@@ -71,6 +73,11 @@ function App() {
     console.log(number1+" "+operation+" "+number2+" = "+result)
   }
 
+  const storeResult = () => {
+    setStored(result)
+    console.log("stored value of: "+result)
+  }
+
   return (
     <div className="calculator">
       <div className="panel">
@@ -88,6 +95,7 @@ function App() {
           <button onClick={() => updateDisplay1(0)}>0</button>
           <button onClick={() => clearDisplay1()}>Clear</button>
         </div>
+        <button onClick={() => setDisplay1(stored)}>Recall</button>
       </div>
 
       <div className="panel">
@@ -115,11 +123,13 @@ function App() {
           <button onClick={() => updateDisplay2(0)}>0</button>
           <button onClick={() => clearDisplay2()}>Clear</button>
         </div>
+        <button onClick={() => setDisplay2(stored)}>Recall</button>
       </div>
       <div className="panel answer">
         <p>{result}</p>
         <div>
           <button onClick={() => calculate(parseFloat(display1), parseFloat(display2))}>=</button>
+          <button style={{marginTop: 4}} onClick={() => storeResult()}>Store</button>
         </div>
       </div>
     </div>
